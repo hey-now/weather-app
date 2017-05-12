@@ -1,0 +1,164 @@
+.background {
+    -fx-background-color: #000000;
+}
+
+.border-pane {
+    -fx-background-color: #3a3a3a;
+}
+
+.split-pane {
+    -fx-background-color: #263238;
+}
+
+.main-backround{
+    -fx-background-color: #263238;
+}
+
+.split-pane > .split-pane-divider {
+    -fx-padding: 0 0 0 0;
+}
+
+.alert-field{
+    -fx-background-color: #b71c1c;
+
+}
+
+
+.weather-square{
+    -fx-background-color: #37474f;
+    -fx-pref-width: 125;
+    -fx-pref-height: 125;
+    -fx-alignment: center;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 3, 0, 0, 2);
+}
+
+.jfx-tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #00796B;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 5);
+
+}
+
+.tab *.text{
+    -fx-font-family: Roboto;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+.tab {
+    -fx-alignment: center;
+    -fx-fit-to-width: true;
+    -fx-min-width: 146;
+    -fx-pref-width: 146;
+    -fx-background-color: #00796B;;
+}
+
+#top-bar{
+    -fx-background-color: #00796B;
+}
+
+.text-area *.text {
+    -fx-text-alignment: center;
+}
+
+.text-area.weather-label {
+    -fx-text-alignment: center;
+    -fx-background-color: transparent;
+    -fx-font-family: Roboto;
+    -fx-font-size: 12px;
+    -fx-highlight-text-fill: #ffffff;
+    -fx-text-fill: #ffffff;
+}
+
+.text-area.weather-value {
+    -fx-text-alignment: center;
+    -fx-background-color: transparent;
+    -fx-font-family: Roboto;
+    -fx-font-size: 30px;
+    -fx-highlight-text-fill: #ffffff;
+    -fx-text-fill: #ffffff;
+}
+
+.weather-label {
+    -fx-text-alignment: center;
+    -fx-background-color: transparent;
+    -fx-font-family: Roboto;
+    -fx-font-size: 12px;
+    -fx-highlight-text-fill: #ffffff;
+    -fx-fill: #ffffff;
+}
+
+.weather-value {
+    -fx-text-alignment: center;
+    -fx-background-color: transparent;
+    -fx-font-family: Roboto;
+    -fx-font-size: 30px;
+    -fx-highlight-text-fill: #ffffff;
+    -fx-fill: #ffffff;
+}
+
+#pressure{
+    -fx-font-size: 25px;
+}
+
+.temperature{
+    -fx-text-alignment: center;
+    -fx-font-family: Roboto;
+    -fx-font-size: 52px;
+    -fx-fill: #ffffff;
+}
+
+.temperature-feels{
+    -fx-text-alignment: center;
+    -fx-font-family: Roboto;
+    -fx-font-size: 18px;
+    -fx-fill: #ffffff;
+}
+
+.alert-field {
+    -fx-background-image: url("img.jpg");
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 10 10 10 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 5);
+}
+
+.icon-label {
+    -fx-pref-height: 10;
+    -fx-max-height: 15;
+}
+
+.jfx-hamburger> StackPane {
+    -fx-background-color: white;
+}
+
+
+.text.city-name *.text {
+    -fx-text-alignment: left;
+}
+.city-name {
+    -fx-background-color: transparent;
+    -fx-font-family: Roboto;
+    -fx-font-size: 20px;
+    -fx-text-fill: #ffffff;
+    -fx-text-alignment: left;
+    -fx-font-weight: bold;
+
+}
+
+.text-area {
+    -fx-background-color: rgba(53,89,119,0.4);
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}

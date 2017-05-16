@@ -3,6 +3,10 @@
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.effect.ColorAdjust?>
@@ -13,7 +17,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
@@ -31,7 +34,7 @@
                                             <items>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                                     <children>
-                                                        <Pane layoutX="5.0" layoutY="12.0" prefHeight="117.0" prefWidth="421.0" styleClass="alert-field" stylesheets="@test1style.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                                        <AnchorPane layoutX="5.0" layoutY="12.0" prefHeight="117.0" prefWidth="421.0" styleClass="alert-field"  AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                                                             <effect>
                                                                 <ColorAdjust brightness="-0.24" />
                                                             </effect>
@@ -42,19 +45,19 @@
                                                                     </image>
                                                                 </ImageView>
                                                             </children>
-                                                        </Pane>
+                                                        </AnchorPane>
                                                     </children>
                                                 </AnchorPane>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="84.0" prefWidth="310.0">
-                                       <children>
-                                          <Text id="temperature-text" layoutX="258.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="temperature" text="13 °C" />
-                                          <Text layoutX="274.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="temperature-feels" text="(feels 12°C)" />
-                                          <ImageView id="main-icon" fitHeight="105.0" fitWidth="165.0" layoutX="69.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@icons/weather-icon-png-16.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children></AnchorPane>
+                                                    <children>
+                                                        <Text id="temperature-text" layoutX="238.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="temperature" text="13.0 °C" />
+                                                        <Text layoutX="274.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="temperature-feels" text="(feels 12°C)" />
+                                                        <ImageView id="main-icon" fitHeight="105.0" fitWidth="165.0" layoutX="69.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@icons/weather-icon-png-16.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children></AnchorPane>
                                             </items>
                                         </SplitPane>
                                     </children>
@@ -73,132 +76,132 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                             <children>
-                                                <Pane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                                                <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                                                     <GridPane.margin>
                                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="26.0" layoutY="110.0" styleClass="weather-label" text="WIND SPEED" />
-                                                        <Text id="wind-speed-text" layoutX="10.0" layoutY="74.0" styleClass="weather-value" text="24 mph" />
+                                                        <Text id="wind-speed-text" layoutX="10.0" layoutY="74.0" styleClass="weather-value" text="24 mph" wrappingWidth="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/weather-windy.png" />
                                                             </image>
                                                         </ImageView>
                                                     </children>
-                                                </Pane>
-                                                <Pane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                                     <GridPane.margin>
                                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="33.0" layoutY="109.0" styleClass="weather-label" text="HUMIDITY" />
-                                                        <Text id="humidity-text" layoutX="28.0" layoutY="72.0" styleClass="weather-value" text="70 %" />
+                                                        <Text id="humidity-text" layoutX="28.0" layoutY="72.0" styleClass="weather-value" text="70 %" wrappingWidth="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/water-percent.png" />
                                                             </image>
                                                         </ImageView>
                                                     </children>
-                                                </Pane>
-                                                <Pane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                     <GridPane.margin>
                                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="26.0" layoutY="109.0" styleClass="weather-label" text="AIR QUALITY" />
-                                                        <Text layoutX="44.0" layoutY="73.0" styleClass="weather-value" text="42" />
+                                                        <Text layoutX="44.0" layoutY="73.0" styleClass="weather-value" text="42" wrappingWidth="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/66157-200.png" />
                                                             </image>
                                                         </ImageView>
                                                     </children>
-                                                </Pane>
-                                                <Pane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                                                     <GridPane.margin>
                                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="12.0" layoutY="110.0" styleClass="weather-label" text="WIND DIRECTION" />
-                                                        <Text id="wind-direction-text" layoutX="41.0" layoutY="72.0" styleClass="weather-value" text="NE" />
+                                                        <Text id="wind-direction-text" layoutX="41.0" layoutY="72.0" styleClass="weather-value" text="NE" wrappingWidth="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                         <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="50.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/7561-200.png" />
                                                             </image>
                                                         </ImageView>
                                                     </children>
-                                                </Pane>
-                                                <Pane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                                     <GridPane.margin>
                                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="39.0" layoutY="109.0" styleClass="weather-label" text="SUNSET" />
-                                                        <Text id="sunset-text" layoutX="6.0" layoutY="72.0" styleClass="weather-value" text="8:39 pm" />
+                                                        <Text id="sunset-text" layoutX="6.0" layoutY="72.0" styleClass="weather-value" text="8:39 pm" wrappingWidth="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/weather-sunset-down.png" />
                                                             </image>
                                                         </ImageView>
                                                     </children>
-                                                </Pane>
-                                                <Pane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                     <GridPane.margin>
                                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="32.0" layoutY="109.0" styleClass="weather-label" text="PRESSURE" />
-                                                        <Text id="pressure-text" layoutX="12.0" layoutY="74.0" styleClass="weather-value" text="1023hPa" />
+                                                        <Text id="pressure-text" layoutX="12.0" layoutY="74.0" styleClass="weather-value" text="1023hPa" wrappingWidth="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                         <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="44.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/1841-200.png" />
                                                             </image>
                                                         </ImageView>
                                                     </children>
-                                                </Pane>
-                                                <Pane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                                                     <GridPane.margin>
                                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="47.0" layoutY="110.0" styleClass="weather-label" text="RAIN" />
-                                                        <Text id="rain-text" layoutX="40.0" layoutY="72.0" styleClass="weather-value" text="3%" />
+                                                        <Text id="rain-text" layoutX="40.0" layoutY="72.0" styleClass="weather-value" text="3%" wrappingWidth="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/weather-rainy.png" />
                                                             </image>
                                                         </ImageView>
                                                     </children>
-                                                </Pane>
-                                                <Pane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                                     <GridPane.margin>
                                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="34.0" layoutY="109.0" styleClass="weather-label" text="VISIBILITY" />
-                                                        <Text id="visibility-text" layoutX="20.0" layoutY="72.0" styleClass="weather-value" text="22 km" />
+                                                        <Text id="visibility-text" layoutX="20.0" layoutY="72.0" styleClass="weather-value" text="22 km" wrappingWidth="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/eye.png" />
                                                             </image>
                                                         </ImageView>
                                                     </children>
-                                                </Pane>
-                                                <Pane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="137.0" prefWidth="0.0" styleClass="weather-square" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                     <GridPane.margin>
                                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="34.0" layoutY="109.0" styleClass="weather-label" text="UV INDEX" />
-                                                        <Text layoutX="51.0" layoutY="73.0" styleClass="weather-value" text="5" />
+                                                        <Text layoutX="51.0" layoutY="73.0" styleClass="weather-value" text="5" wrappingWidth="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/sunglasses.png" />
                                                             </image>
                                                         </ImageView>
                                                     </children>
-                                                </Pane>
+                                                </AnchorPane>
 
                                             </children>
                                         </GridPane>
@@ -210,17 +213,217 @@
                 </Tab>
                 <Tab text="Day">
                     <content>
-                        <SplitPane dividerPositions="0.38666666666666666" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                        <SplitPane dividerPositions="0.55" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                             <items>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                    <children>
+                                        <ScrollPane prefHeight="303.0" prefWidth="448.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="278.0" prefWidth="777.0">
+                                                    <children>
+                                                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <columnConstraints>
+                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                            <children>
+                                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                                    <children>
+                                                                        <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="30.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/bike/g.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <ImageView fitHeight="40.0" fitWidth="48.0" layoutX="30.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/wind/wind-dart-white-6.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="20.0" layoutY="133.0" styleClass="day-wind" text="24 mph" />
+                                                                        <Text layoutX="21.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="day-temp" text="13 °C" AnchorPane.topAnchor="5.0" />
+                                                                        <ImageView id="main-icon" fitHeight="82.0" fitWidth="45.0" layoutX="28.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                                                                            <image>
+                                                                                <Image url="@icons/weather-icon-png-16.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="29.0" layoutY="271.0" styleClass="day-hour" text="14:00" AnchorPane.bottomAnchor="0.0" />
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                                                    <children>
+                                                                        <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="30.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/bike/g.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <ImageView fitHeight="40.0" fitWidth="48.0" layoutX="30.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/wind/wind-dart-white-6.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="20.0" layoutY="133.0" styleClass="day-wind" text="24 mph" />
+                                                                        <Text layoutX="21.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="day-temp" text="13 °C" AnchorPane.topAnchor="5.0" />
+                                                                        <ImageView id="main-icon" fitHeight="82.0" fitWidth="45.0" layoutX="28.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                                                                            <image>
+                                                                                <Image url="@icons/weather-icon-png-16.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="29.0" layoutY="271.0" styleClass="day-hour" text="16:00" AnchorPane.bottomAnchor="0.0" />
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                                                                    <children>
+                                                                        <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="30.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/bike/y.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <ImageView fitHeight="40.0" fitWidth="48.0" layoutX="30.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/wind/wind-dart-white-6.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="20.0" layoutY="133.0" styleClass="day-wind" text="24 mph" />
+                                                                        <Text layoutX="21.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="day-temp" text="13 °C" AnchorPane.topAnchor="5.0" />
+                                                                        <ImageView id="main-icon" fitHeight="82.0" fitWidth="45.0" layoutX="28.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                                                                            <image>
+                                                                                <Image url="@icons/weather-icon-png-16.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="29.0" layoutY="271.0" styleClass="day-hour" text="17:00" AnchorPane.bottomAnchor="0.0" />
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+                                                                    <children>
+                                                                        <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="30.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/bike/r.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <ImageView fitHeight="40.0" fitWidth="48.0" layoutX="30.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/wind/wind-dart-white-6.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="20.0" layoutY="133.0" styleClass="day-wind" text="24 mph" />
+                                                                        <Text layoutX="21.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="day-temp" text="13 °C" AnchorPane.topAnchor="5.0" />
+                                                                        <ImageView id="main-icon" fitHeight="82.0" fitWidth="45.0" layoutX="28.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                                                                            <image>
+                                                                                <Image url="@icons/weather-icon-png-16.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="29.0" layoutY="271.0" styleClass="day-hour" text="18:00" AnchorPane.bottomAnchor="0.0" />
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+                                                                    <children>
+                                                                        <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="30.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/bike/g.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <ImageView fitHeight="40.0" fitWidth="48.0" layoutX="30.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/wind/wind-dart-white-6.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="20.0" layoutY="133.0" styleClass="day-wind" text="24 mph" />
+                                                                        <Text layoutX="21.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="day-temp" text="13 °C" AnchorPane.topAnchor="5.0" />
+                                                                        <ImageView id="main-icon" fitHeight="82.0" fitWidth="45.0" layoutX="28.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                                                                            <image>
+                                                                                <Image url="@icons/weather-icon-png-16.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="29.0" layoutY="271.0" styleClass="day-hour" text="14:00" AnchorPane.bottomAnchor="0.0" />
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
+                                                                    <children>
+                                                                        <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="30.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/bike/g.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <ImageView fitHeight="40.0" fitWidth="48.0" layoutX="30.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/wind/wind-dart-white-6.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="20.0" layoutY="133.0" styleClass="day-wind" text="24 mph" />
+                                                                        <Text layoutX="21.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="day-temp" text="13 °C" AnchorPane.topAnchor="5.0" />
+                                                                        <ImageView id="main-icon" fitHeight="82.0" fitWidth="45.0" layoutX="28.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                                                                            <image>
+                                                                                <Image url="@icons/weather-icon-png-16.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="29.0" layoutY="271.0" styleClass="day-hour" text="14:00" AnchorPane.bottomAnchor="0.0" />
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6">
+                                                                    <children>
+                                                                        <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="30.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/bike/g.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <ImageView fitHeight="40.0" fitWidth="48.0" layoutX="30.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
+                                                                            <image>
+                                                                                <Image url="@icons/wind/wind-dart-white-6.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="20.0" layoutY="133.0" styleClass="day-wind" text="24 mph" />
+                                                                        <Text layoutX="21.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="day-temp" text="13 °C" AnchorPane.topAnchor="5.0" />
+                                                                        <ImageView id="main-icon" fitHeight="82.0" fitWidth="45.0" layoutX="28.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                                                                            <image>
+                                                                                <Image url="@icons/weather-icon-png-16.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                        <Text layoutX="29.0" layoutY="271.0" styleClass="day-hour" text="14:00" AnchorPane.bottomAnchor="0.0" />
+                                                                    </children>
+                                                                </AnchorPane>
+                                                            </children>
+                                                        </GridPane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="day-label" text="Next 24 hours" />
+                                    </children></AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                    <children>
+                                        <ScrollPane prefHeight="303.0" prefWidth="448.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="261.0" prefWidth="777.0">
+                                                    <children>
+                                                        <AreaChart layoutX="-84.0" layoutY="-78.0" prefHeight="267.0" prefWidth="777.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <xAxis>
+                                                                <CategoryAxis side="BOTTOM" />
+                                                            </xAxis>
+                                                            <yAxis>
+                                                                <NumberAxis side="LEFT" />
+                                                            </yAxis>
+                                                        </AreaChart>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <Text layoutX="14.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="day-label" text="Rainfall" />
+                                    </children></AnchorPane>
                             </items>
                         </SplitPane>
                     </content>
                 </Tab>
                 <Tab text="Week">
                     <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="369.0" styleClass="main-backround" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="369.0" styleClass="main-backround" />
                     </content>
                 </Tab>
             </tabs>
@@ -230,10 +433,10 @@
         </JFXTabPane>
     </center>
     <top>
-        <Pane id="top-bar" prefHeight="39.0" prefWidth="450.0" BorderPane.alignment="CENTER">
+        <AnchorPane id="top-bar" prefHeight="39.0" prefWidth="450.0" BorderPane.alignment="CENTER">
             <children>
                 <JFXHamburger layoutX="14.0" layoutY="10.0" />
-            <Text fill="WHITE" layoutX="60.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="city-name" text="Cambridge" wrappingWidth="367.82421875" />
-            </children></Pane>
+                <Text fill="WHITE" layoutX="60.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="city-name" text="Cambridge" wrappingWidth="367.82421875" />
+            </children></AnchorPane>
     </top>
 </BorderPane>

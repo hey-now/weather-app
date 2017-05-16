@@ -47,7 +47,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="84.0" prefWidth="310.0">
                                        <children>
-                                          <Text layoutX="258.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="temperature" text="13 °C" />
+                                          <Text id="temperature-text" layoutX="258.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="temperature" text="13 °C" />
                                           <Text layoutX="274.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="temperature-feels" text="(feels 12°C)" />
                                           <ImageView id="main-icon" fitHeight="105.0" fitWidth="165.0" layoutX="69.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -79,7 +79,7 @@
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="26.0" layoutY="110.0" styleClass="weather-label" text="WIND SPEED" />
-                                                        <Text id="wind-speed" layoutX="10.0" layoutY="74.0" styleClass="weather-value" text="24 mph" />
+                                                        <Text id="wind-speed-text" layoutX="10.0" layoutY="74.0" styleClass="weather-value" text="24 mph" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/weather-windy.png" />
@@ -93,7 +93,7 @@
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="33.0" layoutY="109.0" styleClass="weather-label" text="HUMIDITY" />
-                                                        <Text layoutX="28.0" layoutY="72.0" styleClass="weather-value" text="70 %" />
+                                                        <Text id="humidity-text" layoutX="28.0" layoutY="72.0" styleClass="weather-value" text="70 %" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/water-percent.png" />
@@ -121,7 +121,7 @@
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="12.0" layoutY="110.0" styleClass="weather-label" text="WIND DIRECTION" />
-                                                        <Text layoutX="41.0" layoutY="72.0" styleClass="weather-value" text="NE" />
+                                                        <Text id="wind-direction-text" layoutX="41.0" layoutY="72.0" styleClass="weather-value" text="NE" />
                                                         <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="50.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/7561-200.png" />
@@ -135,7 +135,7 @@
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="39.0" layoutY="109.0" styleClass="weather-label" text="SUNSET" />
-                                                        <Text layoutX="6.0" layoutY="72.0" styleClass="weather-value" text="8:39 pm" />
+                                                        <Text id="sunset-text" layoutX="6.0" layoutY="72.0" styleClass="weather-value" text="8:39 pm" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/weather-sunset-down.png" />
@@ -149,7 +149,7 @@
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="32.0" layoutY="109.0" styleClass="weather-label" text="PRESSURE" />
-                                                        <Text id="pressure" layoutX="12.0" layoutY="74.0" styleClass="weather-value" text="1023hPa" />
+                                                        <Text id="pressure-text" layoutX="12.0" layoutY="74.0" styleClass="weather-value" text="1023hPa" />
                                                         <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="44.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/1841-200.png" />
@@ -163,7 +163,7 @@
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="47.0" layoutY="110.0" styleClass="weather-label" text="RAIN" />
-                                                        <Text layoutX="40.0" layoutY="72.0" styleClass="weather-value" text="3%" />
+                                                        <Text id="rain-text" layoutX="40.0" layoutY="72.0" styleClass="weather-value" text="3%" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/weather-rainy.png" />
@@ -177,7 +177,7 @@
                                                     </GridPane.margin>
                                                     <children>
                                                         <Text layoutX="34.0" layoutY="109.0" styleClass="weather-label" text="VISIBILITY" />
-                                                        <Text layoutX="20.0" layoutY="72.0" styleClass="weather-value" text="22 km" />
+                                                        <Text id="visibility-text" layoutX="20.0" layoutY="72.0" styleClass="weather-value" text="22 km" />
                                                         <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="43.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-label">
                                                             <image>
                                                                 <Image url="@icons/eye.png" />

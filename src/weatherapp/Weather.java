@@ -26,7 +26,7 @@ public class Weather {
 	private String url = "http://api.openweathermap.org/data/2.5/";
 	private String key = "a355dea360f18429136da6d650a448aa";
 	
-	public Map<String, String> nowData;
+	public Map<WeatherEnum, String> nowData;
 	
 	/*
 	 *  format for nowData:
@@ -49,8 +49,8 @@ public class Weather {
 	 * 
 	 */
 	
-	public List<HashMap<String, String>> dayData;
-	public Map<String, Double[]> dayGraph;
+	public List<HashMap<WeatherEnum, String>> dayData;
+	public Map<WeatherEnum, Double[]> dayGraph;
 	
 	/*
 	 *  format for dayData:
@@ -88,7 +88,7 @@ public class Weather {
 	 * 
 	 */
 	
-	public List<HashMap<String, String>> weekData;
+	public List<HashMap<WeatherEnum, String>> weekData;
 	
 	/*
 	 *  format for weekData:
@@ -159,33 +159,33 @@ public class Weather {
 			
 			nowData = new HashMap<>();
 			
-			nowData.put("icon", data.getJSONArray("weather").getJSONObject(0).getString("icon"));
-			nowData.put("temperature", Double.toString(round(data.getJSONObject("main").getDouble("temp") - 273.15, 0)));
-			nowData.put("wind speed", Double.toString(data.getJSONObject("wind").getDouble("speed")));
-			nowData.put("wind direction", Integer.toString(data.getJSONObject("wind").getInt("deg")));
+			nowData.put(WeatherEnum.ICON, data.getJSONArray("weather").getJSONObject(0).getString("icon"));
+			nowData.put(WeatherEnum.TEMPERATURE, Double.toString(round(data.getJSONObject("main").getDouble("temp") - 273.15, 0)));
+			nowData.put(WeatherEnum.WIND_SPEED, Double.toString(data.getJSONObject("wind").getDouble("speed")));
+			nowData.put(WeatherEnum.WIND_DIRECTION, direction(data.getJSONObject("wind").getDouble("deg")));
 			try {
 				
-				nowData.put("rain", Double.toString(data.getJSONObject("rain").getDouble("3h")));
+				nowData.put(WeatherEnum.RAIN, Double.toString(data.getJSONObject("rain").getDouble("3h")));
 			
 			} catch (JSONException e) {
 				
 				System.out.println(e.getMessage());
-				nowData.put("rain", "0.0");
+				nowData.put(WeatherEnum.RAIN, "0.0");
 				
 			}
-			nowData.put("humidity", Integer.toString(data.getJSONObject("main").getInt("humidity")));
-			nowData.put("cloud cover", Integer.toString(data.getJSONObject("clouds").getInt("all")));
-			nowData.put("sunrise", Integer.toString(data.getJSONObject("sys").getInt("sunrise")));
-			nowData.put("sunset", Integer.toString(data.getJSONObject("sys").getInt("sunset")));
-			nowData.put("pressure", Double.toString(data.getJSONObject("main").getDouble("pressure")));
+			nowData.put(WeatherEnum.HUMIDITY, Integer.toString(data.getJSONObject("main").getInt("humidity")));
+			nowData.put(WeatherEnum.CLOUD_COVER, Integer.toString(data.getJSONObject("clouds").getInt("all")));
+			nowData.put(WeatherEnum.SUNRISE, Integer.toString(data.getJSONObject("sys").getInt("sunrise")));
+			nowData.put(WeatherEnum.SUNSET, Integer.toString(data.getJSONObject("sys").getInt("sunset")));
+			nowData.put(WeatherEnum.PRESSURE, Double.toString(data.getJSONObject("main").getDouble("pressure")));
 			try {
 				
-				nowData.put("visibility", Integer.toString(data.getInt("visibility")));
+				nowData.put(WeatherEnum.VISIBILITY, Integer.toString(data.getInt("visibility")));
 			
 			} catch (JSONException e) {
 				
 				System.out.println(e.getMessage());
-				nowData.put("visibility", "10000");
+				nowData.put(WeatherEnum.VISIBILITY, "10000");
 				
 			}
 			
@@ -207,25 +207,25 @@ public class Weather {
 			JSONObject data = generalPOST(url + "forecast?lat=" + lat + "&lon=" + lon + "&cnt=8&appid=" + key);
 			System.out.println(data);
 			
-			dayData = new ArrayList<HashMap<String, String>>();
-			dayGraph = new HashMap<String, Double[]>();
+			dayData = new ArrayList<HashMap<WeatherEnum, String>>();
+			dayGraph = new HashMap<WeatherEnum, Double[]>();
 			Double[] graphRain = new Double[8];
 			Double[] graphTemp = new Double[8];
 			
 			for (int i = 0; i < 8; i ++) {
 				
 				JSONObject r = data.getJSONArray("list").getJSONObject(i);
-				HashMap<String, String> slot = new HashMap<>();
+				HashMap<WeatherEnum, String> slot = new HashMap<>();
 				
 				Date d = new Date(Integer.toUnsignedLong(r.getInt("dt")) * 1000L + 1L);
 				String name = (new SimpleDateFormat("E")).format(d);
 				String time = name + " " + r.getString("dt_txt").substring(11, 16);
 				
-				slot.put("icon", r.getJSONArray("weather").getJSONObject(0).getString("icon"));
-				slot.put("wind speed", Double.toString(r.getJSONObject("wind").getDouble("speed")));
-				slot.put("wind direction", Integer.toString(r.getJSONObject("wind").getInt("deg")));
-				slot.put("cloud cover", Integer.toString(r.getJSONObject("clouds").getInt("all")));
-				slot.put("slot", time);
+				slot.put(WeatherEnum.ICON, r.getJSONArray("weather").getJSONObject(0).getString("icon"));
+				slot.put(WeatherEnum.WIND_SPEED, Double.toString(r.getJSONObject("wind").getDouble("speed")));
+				slot.put(WeatherEnum.WIND_DIRECTION, direction(r.getJSONObject("wind").getDouble("deg")));
+				slot.put(WeatherEnum.CLOUD_COVER, Integer.toString(r.getJSONObject("clouds").getInt("all")));
+				slot.put(WeatherEnum.SLOT, time);
 				
 				dayData.add(slot);
 				
@@ -243,8 +243,8 @@ public class Weather {
 				
 			}
 			
-			dayGraph.put("rain", graphRain);
-			dayGraph.put("temperature", graphTemp);
+			dayGraph.put(WeatherEnum.RAIN, graphRain);
+			dayGraph.put(WeatherEnum.TEMPERATURE, graphTemp);
 			
 			System.out.println(dayData.toString());
 			System.out.println(dayGraph.toString());
@@ -267,34 +267,34 @@ public class Weather {
 			JSONObject data = generalPOST(url + "forecast/daily?lat=" + lat + "&lon=" + lon + "&cnt=7&appid=" + key);
 			System.out.println(data);
 			
-			weekData = new ArrayList<HashMap<String, String>>();
+			weekData = new ArrayList<HashMap<WeatherEnum, String>>();
 			
 			for (int i = 0; i < 7; i ++) {
 				
 				JSONObject r = data.getJSONArray("list").getJSONObject(i);
-				HashMap<String, String> day = new HashMap<>();
+				HashMap<WeatherEnum, String> day = new HashMap<>();
 				
 				Date d = new Date(Integer.toUnsignedLong(r.getInt("dt")) * 1000L);
 				String sname = (new SimpleDateFormat("E")).format(d);
 				String name = (new SimpleDateFormat("EEEE")).format(d);
 				
-				day.put("day", name);
-				day.put("short day", sname);
-				day.put("icon", r.getJSONArray("weather").getJSONObject(0).getString("icon"));
-				day.put("temperature", Double.toString(round(r.getJSONObject("temp").getDouble("day") - 273.15, 0)));
-				day.put("min temperature", Double.toString(round(r.getJSONObject("temp").getDouble("min") - 273.15, 0)));
-				day.put("max temperature", Double.toString(round(r.getJSONObject("temp").getDouble("max") - 273.15, 0)));
-				day.put("wind speed", Double.toString(r.getDouble("speed")));
-				day.put("wind direction", Double.toString(r.getDouble("deg")));
-				day.put("cloud cover", Integer.toString(r.getInt("clouds")));
+				day.put(WeatherEnum.DAY, name);
+				day.put(WeatherEnum.SHORT_DAY, sname);
+				day.put(WeatherEnum.ICON, r.getJSONArray("weather").getJSONObject(0).getString("icon"));
+				day.put(WeatherEnum.TEMPERATURE, Double.toString(round(r.getJSONObject("temp").getDouble("day") - 273.15, 0)));
+				day.put(WeatherEnum.MIN_TEMPERATURE, Double.toString(round(r.getJSONObject("temp").getDouble("min") - 273.15, 0)));
+				day.put(WeatherEnum.MAX_TEMPERATURE, Double.toString(round(r.getJSONObject("temp").getDouble("max") - 273.15, 0)));
+				day.put(WeatherEnum.WIND_SPEED, Double.toString(r.getDouble("speed")));
+				day.put(WeatherEnum.WIND_DIRECTION, direction(r.getDouble("deg")));
+				day.put(WeatherEnum.CLOUD_COVER, Integer.toString(r.getInt("clouds")));
 				try {
 					
-					day.put("rain", Double.toString(r.getDouble("rain")));
+					day.put(WeatherEnum.RAIN, Double.toString(r.getDouble("rain")));
 					
 				} catch (JSONException e) {
 					
 					System.out.println(e.getMessage());
-					day.put("rain", "0.0");
+					day.put(WeatherEnum.RAIN, "0.0");
 					
 				}
 				

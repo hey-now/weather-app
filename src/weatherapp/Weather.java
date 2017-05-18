@@ -158,7 +158,8 @@ public class Weather {
 			//System.out.println(coData);
 			
 			nowData = new HashMap<>();
-			
+
+
 			nowData.put(WeatherEnum.ICON, data.getJSONArray("weather").getJSONObject(0).getString("icon"));
 			nowData.put(WeatherEnum.TEMPERATURE, Double.toString(round(data.getJSONObject("main").getDouble("temp") - 273.15, 0)));
 			nowData.put(WeatherEnum.WIND_SPEED, Double.toString(data.getJSONObject("wind").getDouble("speed")));

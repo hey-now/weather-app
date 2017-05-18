@@ -235,8 +235,5 @@
                 <JFXHamburger id="location-button" layoutX="14.0" layoutY="10.0" />
             <Text fill="WHITE" layoutX="60.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="city-name" text="Cambridge" wrappingWidth="367.82421875" />
             </children></Pane>
-                <JFXHamburger layoutX="14.0" layoutY="10.0" />
-                <Text fill="WHITE" layoutX="60.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="city-name" text="Cambridge" wrappingWidth="367.82421875" />
-            </children></AnchorPane>
     </top>
 </BorderPane>

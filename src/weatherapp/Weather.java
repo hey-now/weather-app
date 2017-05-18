@@ -161,6 +161,7 @@ public class Weather {
 
 
 			nowData.put(WeatherEnum.ICON, data.getJSONArray("weather").getJSONObject(0).getString("icon"));
+			nowData.put(WeatherEnum.DESCRIPTION, data.getJSONArray("weather").getJSONObject(0).getString("description"));
 			nowData.put(WeatherEnum.TEMPERATURE, Double.toString(round(data.getJSONObject("main").getDouble("temp") - 273.15, 0)));
 			nowData.put(WeatherEnum.WIND_SPEED, Double.toString(data.getJSONObject("wind").getDouble("speed")));
 			nowData.put(WeatherEnum.WIND_DIRECTION, direction(data.getJSONObject("wind").getDouble("deg")));
@@ -221,7 +222,8 @@ public class Weather {
 				Date d = new Date(Integer.toUnsignedLong(r.getInt("dt")) * 1000L + 1L);
 				String name = (new SimpleDateFormat("E")).format(d);
 				String time = name + " " + r.getString("dt_txt").substring(11, 16);
-				
+
+				slot.put(WeatherEnum.TEMPERATURE, Double.toString(round(r.getJSONObject("main").getDouble("temp") - 273.15, 0)));
 				slot.put(WeatherEnum.ICON, r.getJSONArray("weather").getJSONObject(0).getString("icon"));
 				slot.put(WeatherEnum.WIND_SPEED, Double.toString(r.getJSONObject("wind").getDouble("speed")));
 				slot.put(WeatherEnum.WIND_DIRECTION, direction(r.getJSONObject("wind").getDouble("deg")));

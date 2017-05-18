@@ -117,10 +117,10 @@
     -fx-fill: #cccccc;
 }
 
-.temperature-feels{
+.description{
     -fx-text-alignment: center;
     -fx-font-family: Roboto;
-    -fx-font-size: 18px;
+    -fx-font-size: 14px;
     -fx-fill: #cccccc;
 }
 
@@ -165,7 +165,7 @@
 .day-temp{
     -fx-text-alignment: center;
     -fx-font-family: Roboto;
-    -fx-font-size: 25px;
+    -fx-font-size: 22px;
     -fx-fill: #ffffff;
 }
 

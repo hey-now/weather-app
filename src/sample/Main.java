@@ -63,6 +63,7 @@ public class Main extends Application {
 
         HashMap<WeatherEnum, WeatherStructure> dataMap = new HashMap<>();
         dataMap.put(WeatherEnum.TEMPERATURE, new WeatherStructure("temperature-text", "°C"));
+        dataMap.put(WeatherEnum.DESCRIPTION, new WeatherStructure("description-text", ""));
         dataMap.put(WeatherEnum.WIND_SPEED, new WeatherStructure("wind-speed-text", "m/s"));
         dataMap.put(WeatherEnum.WIND_DIRECTION, new WeatherStructure("wind-direction-text", ""));
         dataMap.put(WeatherEnum.RAIN, new WeatherStructure("rain-text", "mm"));
@@ -95,24 +96,8 @@ public class Main extends Application {
         ImageView node = (ImageView)root.lookup("#main-icon1");
         node.setImage(weatherImages.get(wdata.nowData.get(WeatherEnum.ICON)));
 
-
-        //Filling the icons in day screen
-        for(int i=0;i<=6;i++){
-            ImageView day_icon = (ImageView)root.lookup("#day-icon"+i);
-
-            //TODO: make the hourly icon be based on the data, text fields as well
-            day_icon.setImage(weatherImages.get(wdata.nowData.get(WeatherEnum.ICON)));
-
-
-            ImageView wind_direction_icon = (ImageView)root.lookup("#day-wind-icon"+i);
-            String direction  = wdata.nowData.get(WeatherEnum.WIND_DIRECTION);
-            wind_direction_icon.setImage(new Image("/sample/icons/wind/"+direction+".png"));
-
-
-            ImageView day_bike_icon = (ImageView)root.lookup("#day-bike-icon"+i);
-            String bike_colour  = (i%4==3)?"y":"g";   //Very pro choice of bike colour
-            day_bike_icon.setImage(new Image("/sample/icons/bike/"+bike_colour+".png"));
-        }
+        DataController dataController = new DataController(root);
+        dataController.loadDayData();
 
 
 

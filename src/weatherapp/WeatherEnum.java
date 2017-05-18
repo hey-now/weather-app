@@ -11,6 +11,7 @@ public enum WeatherEnum{
     RAIN,
     HUMIDITY,
     CLOUD_COVER,
+    DESCRIPTION,
     SUNRISE,
     SUNSET,
     PRESSURE,

@@ -43,7 +43,7 @@ public class Weather {
 	 *  	sunrise: < time of sunrise in s since epoch, must be converted to Long and multiplied by 1000L for use in Date() >,
 	 *  	sunset: < time of sunset >,
 	 *  	pressure: < air pressure in hpa >,
-	 *  	visibility: < seems to be / 10000 >
+	 *  	visibility: < visibility in kilometres >
 	 *  
 	 *  }
 	 * 
@@ -158,7 +158,8 @@ public class Weather {
 			//System.out.println(coData);
 			
 			nowData = new HashMap<>();
-			
+
+
 			nowData.put(WeatherEnum.ICON, data.getJSONArray("weather").getJSONObject(0).getString("icon"));
 			nowData.put(WeatherEnum.TEMPERATURE, Double.toString(round(data.getJSONObject("main").getDouble("temp") - 273.15, 0)));
 			nowData.put(WeatherEnum.WIND_SPEED, Double.toString(data.getJSONObject("wind").getDouble("speed")));
@@ -175,17 +176,17 @@ public class Weather {
 			}
 			nowData.put(WeatherEnum.HUMIDITY, Integer.toString(data.getJSONObject("main").getInt("humidity")));
 			nowData.put(WeatherEnum.CLOUD_COVER, Integer.toString(data.getJSONObject("clouds").getInt("all")));
-			nowData.put(WeatherEnum.SUNRISE, Integer.toString(data.getJSONObject("sys").getInt("sunrise")));
-			nowData.put(WeatherEnum.SUNSET, Integer.toString(data.getJSONObject("sys").getInt("sunset")));
+			nowData.put(WeatherEnum.SUNRISE, new SimpleDateFormat("h:mm a").format((long)data.getJSONObject("sys").getInt("sunrise")*1000l));
+			nowData.put(WeatherEnum.SUNSET, new SimpleDateFormat("h:mm a").format((long)data.getJSONObject("sys").getInt("sunset")*1000l));
 			nowData.put(WeatherEnum.PRESSURE, Double.toString(data.getJSONObject("main").getDouble("pressure")));
 			try {
 				
-				nowData.put(WeatherEnum.VISIBILITY, Integer.toString(data.getInt("visibility")));
+				nowData.put(WeatherEnum.VISIBILITY, Integer.toString(data.getInt("visibility") / 1000));
 			
 			} catch (JSONException e) {
 				
-				System.out.println(e.getMessage());
-				nowData.put(WeatherEnum.VISIBILITY, "10000");
+				System.out.println("Error with getting visibility: " + e.getMessage());
+				nowData.put(WeatherEnum.VISIBILITY, "1");
 				
 			}
 			

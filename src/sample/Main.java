@@ -1,9 +1,14 @@
 package sample;
 
+import com.jfoenix.controls.JFXHamburger;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import javafx.scene.text.Text;
@@ -26,6 +31,36 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        HashMap<String, Image> weatherImages = new HashMap<>();
+        weatherImages.put("01d", new Image("/sample/icons/weather-partlycloudy.png")); //clear sky
+        weatherImages.put("01n", new Image("/sample/icons/weather-partlycloudy.png")); //night variant
+
+        weatherImages.put("02d", new Image("/sample/icons/weather-partlycloudy.png")); //few clouds
+        weatherImages.put("02n", new Image("/sample/icons/weather-partlycloudy.png"));
+
+        weatherImages.put("03d", new Image("/sample/icons/weather-windy.png")); //scattered clouds
+        weatherImages.put("03n", new Image("/sample/icons/weather-partlycloudy.png"));
+
+        weatherImages.put("04d", new Image("/sample/icons/weather-partlycloudy.png")); //broken clouds
+        weatherImages.put("04n", new Image("/sample/icons/weather-partlycloudy.png"));
+
+        weatherImages.put("09d", new Image("/sample/icons/weather-partlycloudy.png")); //shower rain
+        weatherImages.put("09n", new Image("/sample/icons/weather-partlycloudy.png"));
+
+        weatherImages.put("10d", new Image("/sample/icons/weather-partlycloudy.png")); //rain
+        weatherImages.put("10n", new Image("/sample/icons/weather-partlycloudy.png"));
+
+        weatherImages.put("11d", new Image("/sample/icons/weather-partlycloudy.png")); //thunderstorm
+        weatherImages.put("11n", new Image("/sample/icons/weather-partlycloudy.png"));
+
+        weatherImages.put("13d", new Image("/sample/icons/weather-partlycloudy.png")); //snow
+        weatherImages.put("13n", new Image("/sample/icons/weather-partlycloudy.png"));
+
+        weatherImages.put("50d", new Image("/sample/icons/weather-partlycloudy.png")); //mist
+        weatherImages.put("50n", new Image("/sample/icons/weather-partlycloudy.png"));
+
+
+
         HashMap<WeatherEnum, WeatherStructure> dataMap = new HashMap<>();
         dataMap.put(WeatherEnum.TEMPERATURE, new WeatherStructure("temperature-text", "°C"));
         dataMap.put(WeatherEnum.WIND_SPEED, new WeatherStructure("wind-speed-text", "m/s"));
@@ -56,6 +91,17 @@ public class Main extends Application {
                 fillData(entry.getValue(), wdata.nowData.get(k));
             }
         }
+
+        ImageView node = (ImageView)root.lookup("#main-icon");
+        node.setImage(weatherImages.get(wdata.nowData.get(WeatherEnum.ICON)));
+
+        JFXHamburger button = (JFXHamburger)root.lookup("#location-button");
+        button.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+                
+            }
+        });
     }
 
 

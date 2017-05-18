@@ -432,17 +432,7 @@
                                             <children>
                                                 <ScrollPane prefHeight="303.0" prefWidth="448.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
                                                     <content>
-                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="261.0" prefWidth="777.0">
-                                                            <children>
-                                                                <AreaChart layoutX="-84.0" layoutY="-78.0" prefHeight="267.0" prefWidth="777.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                                    <xAxis>
-                                                                        <CategoryAxis side="BOTTOM" />
-                                                                    </xAxis>
-                                                                    <yAxis>
-                                                                        <NumberAxis side="LEFT" />
-                                                                    </yAxis>
-                                                                </AreaChart>
-                                                            </children>
+                                                        <AnchorPane id="chartPane" minHeight="0.0" minWidth="0.0" prefHeight="261.0" prefWidth="777.0">
                                                         </AnchorPane>
                                                     </content>
                                                 </ScrollPane>

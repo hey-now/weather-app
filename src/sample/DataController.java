@@ -1,9 +1,12 @@
 package sample;
 
 import javafx.scene.Parent;
+import javafx.scene.chart.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.util.StringConverter;
 import weatherapp.*;
 
 import java.util.HashMap;
@@ -13,6 +16,7 @@ import java.util.HashMap;
  */
 public class DataController {
     private Parent root;
+    private Weather day_data = null;
 
     DataController (Parent r){
         root=r;
@@ -26,7 +30,7 @@ public class DataController {
     }
 
     public void loadDayData() throws CoordinateException, TimeFrameException {
-        Weather day_data = new Weather(52.207148,0.122047,"day");
+        day_data = new Weather(52.207148,0.122047,"day");
 
         //Filling the data in day screen
         for(int i=0;i<8;i++){
@@ -66,5 +70,56 @@ public class DataController {
 
             day_bike_icon.setImage(new Image("/sample/icons/bike/"+bike_colour+".png"));
         }
+    }
+
+
+    public void loadRainGraph(){
+
+        Double[] rainData = day_data.dayGraph.get(WeatherEnum.TEMPERATURE);
+
+        final CategoryAxis xAxis = new CategoryAxis();
+        final NumberAxis yAxis = new NumberAxis();
+
+        xAxis.setLabel("Time");
+        yAxis.setLabel("Rainfall");
+
+        final AreaChart<String,Number> areaChart = new AreaChart<String,Number>(xAxis,yAxis);
+
+        XYChart.Series series = new XYChart.Series();
+
+        yAxis.setTickLabelFormatter(new StringConverter<Number>() {
+            @Override
+            public String toString(Number object) {
+                return (object.intValue()) + "mm";
+            }
+
+            @Override
+            public Number fromString(String string) {
+                return 0;
+            }
+        });
+
+        for(int i=0;i<8;i++){
+            HashMap<WeatherEnum, String> weatherHourlyData = day_data.dayData.get(i);
+            String slot = weatherHourlyData.getOrDefault(WeatherEnum.SLOT,"err").substring(3);
+
+            series.getData().add(new XYChart.Data(slot, rainData[i]));
+
+
+        }
+
+        areaChart.getData().add(series);
+
+        AnchorPane pane = (AnchorPane)root.lookup("#chartPane");
+
+
+        AnchorPane.setTopAnchor(areaChart, 10.0);
+        AnchorPane.setLeftAnchor(areaChart, -30.0);
+        AnchorPane.setRightAnchor(areaChart, -10.0);
+        AnchorPane.setBottomAnchor(areaChart, -50.0);
+
+
+        pane.getChildren().add(areaChart);
+
     }
 }

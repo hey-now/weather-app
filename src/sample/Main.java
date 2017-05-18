@@ -98,7 +98,7 @@ public class Main extends Application {
 
         DataController dataController = new DataController(root);
         dataController.loadDayData();
-
+        dataController.loadRainGraph();
 
 
 

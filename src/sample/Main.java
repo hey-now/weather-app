@@ -32,32 +32,32 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         HashMap<String, Image> weatherImages = new HashMap<>();
-        weatherImages.put("01d", new Image("/sample/icons/weather-partlycloudy.png")); //clear sky
-        weatherImages.put("01n", new Image("/sample/icons/weather-partlycloudy.png")); //night variant
+        weatherImages.put("01d", new Image("/sample/icons/main_icons/01d.png")); //clear sky
+        weatherImages.put("01n", new Image("/sample/icons/main_icons/01n.png")); //night variant
 
-        weatherImages.put("02d", new Image("/sample/icons/weather-partlycloudy.png")); //few clouds
-        weatherImages.put("02n", new Image("/sample/icons/weather-partlycloudy.png"));
+        weatherImages.put("02d", new Image("/sample/icons/main_icons/02d.png")); //few clouds
+        weatherImages.put("02n", new Image("/sample/icons/main_icons/02n.png"));
 
-        weatherImages.put("03d", new Image("/sample/icons/weather-windy.png")); //scattered clouds
-        weatherImages.put("03n", new Image("/sample/icons/weather-partlycloudy.png"));
+        weatherImages.put("03d", new Image("/sample/icons/main_icons/03d.png")); //scattered clouds
+        weatherImages.put("03n", new Image("/sample/icons/main_icons/03n.png"));
 
-        weatherImages.put("04d", new Image("/sample/icons/weather-partlycloudy.png")); //broken clouds
-        weatherImages.put("04n", new Image("/sample/icons/weather-partlycloudy.png"));
+        weatherImages.put("04d", new Image("/sample/icons/main_icons/04d.png")); //broken clouds
+        weatherImages.put("04n", new Image("/sample/icons/main_icons/04n.png"));
 
-        weatherImages.put("09d", new Image("/sample/icons/weather-partlycloudy.png")); //shower rain
-        weatherImages.put("09n", new Image("/sample/icons/weather-partlycloudy.png"));
+        weatherImages.put("09d", new Image("/sample/icons/main_icons/09d.png")); //shower rain
+        weatherImages.put("09n", new Image("/sample/icons/main_icons/09n.png"));
 
-        weatherImages.put("10d", new Image("/sample/icons/weather-partlycloudy.png")); //rain
-        weatherImages.put("10n", new Image("/sample/icons/weather-partlycloudy.png"));
+        weatherImages.put("10d", new Image("/sample/icons/main_icons/10d.png")); //rain
+        weatherImages.put("10n", new Image("/sample/icons/main_icons/10n.png"));
 
-        weatherImages.put("11d", new Image("/sample/icons/weather-partlycloudy.png")); //thunderstorm
-        weatherImages.put("11n", new Image("/sample/icons/weather-partlycloudy.png"));
+        weatherImages.put("11d", new Image("/sample/icons/main_icons/11d.png")); //thunderstorm
+        weatherImages.put("11n", new Image("/sample/icons/main_icons/11n.png"));
 
-        weatherImages.put("13d", new Image("/sample/icons/weather-partlycloudy.png")); //snow
-        weatherImages.put("13n", new Image("/sample/icons/weather-partlycloudy.png"));
+        weatherImages.put("13d", new Image("/sample/icons/main_icons/13d.png")); //snow
+        weatherImages.put("13n", new Image("/sample/icons/main_icons/13n.png"));
 
-        weatherImages.put("50d", new Image("/sample/icons/weather-partlycloudy.png")); //mist
-        weatherImages.put("50n", new Image("/sample/icons/weather-partlycloudy.png"));
+        weatherImages.put("50d", new Image("/sample/icons/main_icons/50d.png")); //mist
+        weatherImages.put("50n", new Image("/sample/icons/main_icons/50n.png"));
 
 
 
@@ -92,8 +92,29 @@ public class Main extends Application {
             }
         }
 
-        ImageView node = (ImageView)root.lookup("#main-icon");
+        ImageView node = (ImageView)root.lookup("#main-icon1");
         node.setImage(weatherImages.get(wdata.nowData.get(WeatherEnum.ICON)));
+
+
+        //Filling the icons in day screen
+        for(int i=0;i<=6;i++){
+            ImageView day_icon = (ImageView)root.lookup("#day-icon"+i);
+
+            //TODO: make the hourly icon be based on the data, text fields as well
+            day_icon.setImage(weatherImages.get(wdata.nowData.get(WeatherEnum.ICON)));
+
+
+            ImageView wind_direction_icon = (ImageView)root.lookup("#day-wind-icon"+i);
+            String direction  = wdata.nowData.get(WeatherEnum.WIND_DIRECTION);
+            wind_direction_icon.setImage(new Image("/sample/icons/wind/"+direction+".png"));
+
+
+            ImageView day_bike_icon = (ImageView)root.lookup("#day-bike-icon"+i);
+            String bike_colour  = (i%4==3)?"y":"g";   //Very pro choice of bike colour
+            day_bike_icon.setImage(new Image("/sample/icons/bike/"+bike_colour+".png"));
+        }
+
+
 
 
     }

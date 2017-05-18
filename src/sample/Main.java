@@ -95,13 +95,7 @@ public class Main extends Application {
         ImageView node = (ImageView)root.lookup("#main-icon");
         node.setImage(weatherImages.get(wdata.nowData.get(WeatherEnum.ICON)));
 
-        JFXHamburger button = (JFXHamburger)root.lookup("#location-button");
-        button.setOnMouseClicked(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent arg0) {
-                
-            }
-        });
+
     }
 
 

@@ -279,7 +279,7 @@ public class Weather {
 				
 				Date d = new Date(Integer.toUnsignedLong(r.getInt("dt")) * 1000L);
 				String sname = (new SimpleDateFormat("E")).format(d);
-				String name = (new SimpleDateFormat("EEEE")).format(d);
+				String name = (new SimpleDateFormat("E, dd.MM")).format(d);
 				
 				day.put(WeatherEnum.DAY, name);
 				day.put(WeatherEnum.SHORT_DAY, sname);

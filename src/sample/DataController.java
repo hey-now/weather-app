@@ -79,10 +79,11 @@ public class DataController {
         Double[] rainData = day_data.dayGraph.get(WeatherEnum.TEMPERATURE);
 
         final CategoryAxis xAxis = new CategoryAxis();
-        final NumberAxis yAxis = new NumberAxis();
+        final NumberAxis yAxis =  new NumberAxis(0, 25, 5);
 
         xAxis.setLabel("Time");
         yAxis.setLabel("Rainfall");
+
 
         final AreaChart<String,Number> areaChart = new AreaChart<String,Number>(xAxis,yAxis);
 
@@ -115,7 +116,7 @@ public class DataController {
 
 
         AnchorPane.setTopAnchor(areaChart, 10.0);
-        AnchorPane.setLeftAnchor(areaChart, -30.0);
+        AnchorPane.setLeftAnchor(areaChart, -20.0);
         AnchorPane.setRightAnchor(areaChart, -10.0);
         AnchorPane.setBottomAnchor(areaChart, -50.0);
 
@@ -131,7 +132,7 @@ public class DataController {
 
             HashMap<WeatherEnum,String> weatherWeekData = week_data.weekData.get(i);
 
-            String day = weatherWeekData.getOrDefault(WeatherEnum.SHORT_DAY, "error");
+            String day = weatherWeekData.getOrDefault(WeatherEnum.DAY, "error");
             fillData(new WeatherStructure("week-day-text"+i, ""), day);
 
             ImageView weatherIcon = (ImageView)root.lookup("#week-weather-icon"+i);

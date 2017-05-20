@@ -80,7 +80,7 @@ public class Main extends Application {
 
 
         this.root = FXMLLoader.load(getClass().getResource("app_layout.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Bike Weather");
         primaryStage.setScene(new Scene(root, 450, 800));
         primaryStage.show();
 

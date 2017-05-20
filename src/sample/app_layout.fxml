@@ -454,14 +454,14 @@
                                                         <AnchorPane prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="Thu 18/05" />
+                                                                    <Text id="week-day-text0" fill="WHITE" layoutX="22.5" layoutY="51.0" text="Thu 18/05" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="90.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-weather-icon0" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-rainy.png" />
                                                                         </image>
@@ -472,21 +472,21 @@
                                                         <AnchorPane layoutX="180.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="13 °C" />
+                                                                    <Text id="week-temp-text0" fill="WHITE" layoutX="22.5" layoutY="51.0" text="13 °C" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="270.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="65.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-winddir-icon0" fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-partlycloudy.png" />
                                                                         </image>
                                                                     </ImageView>
                                                                 </Pane>
                                                                 <Pane prefHeight="25.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
+                                                                    <Text id="week-windspd-text0" fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
@@ -494,19 +494,12 @@
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
                                                                     <children>
-                                                                        <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView id="week-cyclist-icon0" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                             <image>
                                                                                 <Image url="@icons/weather-sunset-down.png" />
                                                                             </image>
                                                                         </ImageView>
                                                                     </children></Pane>
-                                                            </children>
-                                                        </AnchorPane>
-                                                        <AnchorPane layoutY="85.0" prefHeight="17.0" prefWidth="450.0">
-                                                            <children>
-                                                                <Pane prefHeight="17.0" prefWidth="450.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" text="Mostly cloudy" />
-                                                                </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                     </children></Pane>
@@ -518,14 +511,14 @@
                                                         <AnchorPane prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="Fri 19/05" />
+                                                                    <Text id="week-day-text1" fill="WHITE" layoutX="22.5" layoutY="51.0" text="Fri 19/05" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="90.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-weather-icon1" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/water-percent.png" />
                                                                         </image>
@@ -536,21 +529,21 @@
                                                         <AnchorPane layoutX="180.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="5 °C" />
+                                                                    <Text id="week-temp-text1" fill="WHITE" layoutX="22.5" layoutY="51.0" text="5 °C" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="270.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="65.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-winddir-icon1" fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-windy.png" />
                                                                         </image>
                                                                     </ImageView>
                                                                 </Pane>
                                                                 <Pane prefHeight="25.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
+                                                                    <Text id="week-windspd-text1" fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
@@ -558,19 +551,12 @@
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
                                                                     <children>
-                                                                        <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView id="week-cyclist-icon1" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                             <image>
                                                                                 <Image url="@icons/weather-rainy.png" />
                                                                             </image>
                                                                         </ImageView>
                                                                     </children></Pane>
-                                                            </children>
-                                                        </AnchorPane>
-                                                        <AnchorPane layoutY="85.0" prefHeight="17.0" prefWidth="450.0">
-                                                            <children>
-                                                                <Pane prefHeight="17.0" prefWidth="450.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" text="Mostly cloudy" />
-                                                                </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                     </children></Pane>
@@ -583,14 +569,14 @@
                                                         <AnchorPane prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="Sat 20/05" />
+                                                                    <Text id="week-day-text2" fill="WHITE" layoutX="22.5" layoutY="51.0" text="Sat 20/05" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="90.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-weather-icon2" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-rainy.png" />
                                                                         </image>
@@ -601,21 +587,21 @@
                                                         <AnchorPane layoutX="180.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="0 °C" />
+                                                                    <Text id="week-temp-text2" fill="WHITE" layoutX="22.5" layoutY="51.0" text="0 °C" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="270.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="65.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-winddir-icon2" fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-rainy.png" />
                                                                         </image>
                                                                     </ImageView>
                                                                 </Pane>
                                                                 <Pane prefHeight="25.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
+                                                                    <Text id="week-windspd-text2" fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
@@ -623,19 +609,12 @@
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
                                                                     <children>
-                                                                        <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView id="week-cyclist-icon2" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                             <image>
                                                                                 <Image url="@icons/weather-rainy.png" />
                                                                             </image>
                                                                         </ImageView>
                                                                     </children></Pane>
-                                                            </children>
-                                                        </AnchorPane>
-                                                        <AnchorPane layoutY="85.0" prefHeight="17.0" prefWidth="450.0">
-                                                            <children>
-                                                                <Pane prefHeight="17.0" prefWidth="450.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" text="Mostly cloudy" />
-                                                                </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                     </children></Pane>
@@ -648,14 +627,14 @@
                                                         <AnchorPane prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="Sun 21/05" />
+                                                                    <Text id="week-day-text3" fill="WHITE" layoutX="22.5" layoutY="51.0" text="Sun 21/05" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="90.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-weather-icon3" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-rainy.png" />
                                                                         </image>
@@ -666,21 +645,21 @@
                                                         <AnchorPane layoutX="180.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="12 °C" />
+                                                                    <Text id="week-temp-text3" fill="WHITE" layoutX="22.5" layoutY="51.0" text="12 °C" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="270.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="65.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-winddir-icon3" fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-rainy.png" />
                                                                         </image>
                                                                     </ImageView>
                                                                 </Pane>
                                                                 <Pane prefHeight="25.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
+                                                                    <Text id="week-windspd-text3" fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
@@ -688,19 +667,12 @@
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
                                                                     <children>
-                                                                        <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView id="week-cyclist-icon3" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                             <image>
                                                                                 <Image url="@icons/weather-rainy.png" />
                                                                             </image>
                                                                         </ImageView>
                                                                     </children></Pane>
-                                                            </children>
-                                                        </AnchorPane>
-                                                        <AnchorPane layoutY="85.0" prefHeight="17.0" prefWidth="450.0">
-                                                            <children>
-                                                                <Pane prefHeight="17.0" prefWidth="450.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" text="Mostly cloudy" />
-                                                                </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                     </children></Pane>
@@ -713,14 +685,14 @@
                                                         <AnchorPane prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="Mon 22/05" />
+                                                                    <Text id="week-day-text4" fill="WHITE" layoutX="22.5" layoutY="51.0" text="Mon 22/05" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="90.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-weather-icon4" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-rainy.png" />
                                                                         </image>
@@ -731,21 +703,21 @@
                                                         <AnchorPane layoutX="180.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="-40 °C" />
+                                                                    <Text id="week-temp-text4" fill="WHITE" layoutX="22.5" layoutY="51.0" text="-40 °C" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="270.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="65.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-winddir-icon4" fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-rainy.png" />
                                                                         </image>
                                                                     </ImageView>
                                                                 </Pane>
                                                                 <Pane prefHeight="25.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
+                                                                    <Text id="week-windspd-text4" fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
@@ -753,19 +725,12 @@
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
                                                                     <children>
-                                                                        <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView id="week-cyclist-icon4" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                             <image>
                                                                                 <Image url="@icons/weather-rainy.png" />
                                                                             </image>
                                                                         </ImageView>
                                                                     </children></Pane>
-                                                            </children>
-                                                        </AnchorPane>
-                                                        <AnchorPane layoutY="85.0" prefHeight="17.0" prefWidth="450.0">
-                                                            <children>
-                                                                <Pane prefHeight="17.0" prefWidth="450.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" text="Mostly cloudy" />
-                                                                </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                     </children></Pane>
@@ -778,14 +743,14 @@
                                                         <AnchorPane prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="Tue 23/05" />
+                                                                    <Text id="week-day-text5" fill="WHITE" layoutX="22.5" layoutY="51.0" text="Tue 23/05" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="90.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-weather-icon5" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-rainy.png" />
                                                                         </image>
@@ -796,21 +761,21 @@
                                                         <AnchorPane layoutX="180.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="500 °C" />
+                                                                    <Text id="week-temp-text5" fill="WHITE" layoutX="22.5" layoutY="51.0" text="500 °C" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="270.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="65.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-winddir-icon5" fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-rainy.png" />
                                                                         </image>
                                                                     </ImageView>
                                                                 </Pane>
                                                                 <Pane prefHeight="25.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
+                                                                    <Text id="week-windspd-text5" fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
@@ -818,19 +783,12 @@
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
                                                                     <children>
-                                                                        <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView id="week-cyclist-icon5" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                             <image>
                                                                                 <Image url="@icons/weather-rainy.png" />
                                                                             </image>
                                                                         </ImageView>
                                                                     </children></Pane>
-                                                            </children>
-                                                        </AnchorPane>
-                                                        <AnchorPane layoutY="85.0" prefHeight="17.0" prefWidth="450.0">
-                                                            <children>
-                                                                <Pane prefHeight="17.0" prefWidth="450.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" text="Mostly cloudy" />
-                                                                </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                     </children></Pane>
@@ -843,14 +801,14 @@
                                                         <AnchorPane prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="Wed 24/05" />
+                                                                    <Text id="week-day-text6" fill="WHITE" layoutX="22.5" layoutY="51.0" text="Wed 24/05" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="90.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-weather-icon6" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-rainy.png" />
                                                                         </image>
@@ -861,21 +819,21 @@
                                                         <AnchorPane layoutX="180.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="51.0" text="16 °C" />
+                                                                    <Text id="week-temp-text6" fill="WHITE" layoutX="22.5" layoutY="51.0" text="16 °C" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                         <AnchorPane layoutX="270.0" prefHeight="85.0" prefWidth="90.0">
                                                             <children>
                                                                 <Pane prefHeight="65.0" prefWidth="90.0">
-                                                                    <ImageView fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <ImageView id="week-winddir-icon6" fitHeight="60.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                         <image>
                                                                             <Image url="@icons/weather-rainy.png" />
                                                                         </image>
                                                                     </ImageView>
                                                                 </Pane>
                                                                 <Pane prefHeight="25.0" prefWidth="90.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
+                                                                    <Text id="week-windspd-text6" fill="WHITE" layoutX="22.5" layoutY="70.0" text="27mph" />
                                                                 </Pane>
                                                             </children>
                                                         </AnchorPane>
@@ -883,19 +841,12 @@
                                                             <children>
                                                                 <Pane prefHeight="85.0" prefWidth="90.0">
                                                                     <children>
-                                                                        <ImageView fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView id="week-cyclist-icon6" fitHeight="85.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                                                             <image>
                                                                                 <Image url="@icons/weather-rainy.png" />
                                                                             </image>
                                                                         </ImageView>
                                                                     </children></Pane>
-                                                            </children>
-                                                        </AnchorPane>
-                                                        <AnchorPane layoutY="85.0" prefHeight="17.0" prefWidth="450.0">
-                                                            <children>
-                                                                <Pane prefHeight="17.0" prefWidth="450.0">
-                                                                    <Text fill="WHITE" layoutX="22.5" text="Mostly cloudy" />
-                                                                </Pane>
                                                             </children>
                                                         </AnchorPane>
                                                     </children></Pane>

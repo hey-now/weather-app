@@ -255,3 +255,8 @@
 .chart-series-area-line { -fx-stroke: #0d47a1; }
 
 .chart-series-area-fill { -fx-fill: #0d47a155;}
+
+Text {
+    -fx-font-family: Roboto;
+    -fx-font-size: 16px;
+}

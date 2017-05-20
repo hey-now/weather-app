@@ -17,6 +17,7 @@ import java.util.HashMap;
 public class DataController {
     private Parent root;
     private Weather day_data = null;
+    private Weather week_data = null;
 
     DataController (Parent r){
         root=r;
@@ -120,6 +121,45 @@ public class DataController {
 
 
         pane.getChildren().add(areaChart);
+
+    }
+
+    public void loadWeekData() throws CoordinateException, TimeFrameException {
+        week_data = new Weather(52.207148,0.122047,"week");
+
+        for (int i = 0; i < 7; i++) {
+
+            HashMap<WeatherEnum,String> weatherWeekData = week_data.weekData.get(i);
+
+            String day = weatherWeekData.getOrDefault(WeatherEnum.SHORT_DAY, "error");
+            fillData(new WeatherStructure("week-day-text"+i, ""), day);
+
+            ImageView weatherIcon = (ImageView)root.lookup("#week-weather-icon"+i);
+            String icon = weatherWeekData.getOrDefault(WeatherEnum.ICON, "error");
+            weatherIcon.setImage(new Image("/sample/icons/main_icons/"+icon+".png"));
+
+            String temp = weatherWeekData.getOrDefault(WeatherEnum.TEMPERATURE, "error");
+            fillData(new WeatherStructure("week-temp-text"+i, "°C"), temp);
+
+            String windSpd = weatherWeekData.getOrDefault(WeatherEnum.WIND_SPEED, "error");
+            fillData(new WeatherStructure("week-windspd-text"+i, "m/s"), windSpd);
+
+            ImageView windDir = (ImageView)root.lookup("#week-winddir-icon"+i);
+            String windIcon = weatherWeekData.getOrDefault(WeatherEnum.WIND_DIRECTION, "error");
+            windDir.setImage(new Image("/sample/icons/wind/"+windIcon+".png"));
+
+            // As before, VERY thoroughly researched
+            String bikeColour;
+            if (Double.parseDouble(windSpd)>12 || Double.parseDouble(temp)<0) bikeColour="r";
+            else if (Double.parseDouble(windSpd)>6 || Double.parseDouble(temp)<5 || Integer.parseInt(icon.substring(0,2))>5) bikeColour="y";
+            else bikeColour  = "g";
+
+            ImageView cyclistIcon = (ImageView)root.lookup("#week-cyclist-icon"+i);
+            cyclistIcon.setImage(new Image("/sample/icons/bike/"+bikeColour+".png"));
+
+
+        }
+
 
     }
 }

@@ -39,9 +39,9 @@
                                                                         <ColorAdjust brightness="-0.24" />
                                                                     </effect>
                                                                     <children>
-                                                                        <ImageView fitHeight="183.0" fitWidth="430.0" pickOnBounds="true" preserveRatio="true" styleClass="alert-panel-image">
+                                                                        <ImageView  id="alert-bar-image" fitWidth="428.0" pickOnBounds="true" preserveRatio="true" styleClass="alert-panel-image" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                                                             <image>
-                                                                                <Image url="@img.jpg" />
+                                                                                <Image url="@alertbar/1.jpg" />
                                                                             </image>
                                                                         </ImageView>
                                                                     </children>

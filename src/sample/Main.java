@@ -96,6 +96,11 @@ public class Main extends Application {
         ImageView node = (ImageView)root.lookup("#main-icon1");
         node.setImage(weatherImages.get(wdata.nowData.get(WeatherEnum.ICON)));
 
+        //Setting the alert image
+        ImageView alertbarimage = (ImageView)root.lookup("#alert-bar-image");
+        int im = (int)(Math.random()*6 + 1);
+        alertbarimage.setImage(new Image("/sample/alertbar/"+im+".jpg"));
+
         DataController dataController = new DataController(root);
         dataController.loadDayData();
         dataController.loadRainGraph();

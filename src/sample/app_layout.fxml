@@ -444,7 +444,7 @@
                             <content>
                         <AnchorPane styleClass="main-backround">
                            <children>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="672.0" prefWidth="450.0" AnchorPane.topAnchor="10.0">
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="672.0" prefWidth="450.0" styleClass="main-backround">
                                           <children>
                                               <AnchorPane layoutX="0.0" prefHeight="102.0" prefWidth="450.0">
                                                   <children>
@@ -868,7 +868,6 @@
                                               </AnchorPane>
                                           </children>
                               </AnchorPane>
-                              <Pane AnchorPane.topAnchor="10.0" />
                            </children>
                         </AnchorPane>
                             </content>

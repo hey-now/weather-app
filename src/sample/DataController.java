@@ -40,7 +40,7 @@ public class DataController {
 
             HashMap<WeatherEnum, String> weatherHourlyData = day_data.dayData.get(i);
 
-            String slot = weatherHourlyData.getOrDefault(WeatherEnum.SLOT,"err").substring(3);
+            String slot = weatherHourlyData.getOrDefault(WeatherEnum.SLOT,"err").split("\\s")[1];
             Text slot_text = (Text)root.lookup("#day-hour-text"+i);
             slot_text.setText(slot);
 
@@ -103,7 +103,7 @@ public class DataController {
 
         for(int i=0;i<8;i++){
             HashMap<WeatherEnum, String> weatherHourlyData = day_data.dayData.get(i);
-            String slot = weatherHourlyData.getOrDefault(WeatherEnum.SLOT,"err").substring(3);
+            String slot = weatherHourlyData.getOrDefault(WeatherEnum.SLOT,"err").split("\\s")[1];
 
             series.getData().add(new XYChart.Data(slot, rainData[i]));
 

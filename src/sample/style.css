@@ -268,3 +268,23 @@ Text {
 .week-temp{
     -fx-font-size: 22px;
 }
+
+VBox{
+    -fx-background-color: #1b252b;
+}
+
+.jfx-button{
+    -fx-background-color: #37474f;
+    -fx-font-size: 14px;
+    -fx-text-fill: WHITE;
+
+}
+.jfx-button-raised{
+    -fx-background-color: #37474f;
+
+}
+
+.drawer-top-bar{
+    -fx-background-color: #00695c;
+}
+

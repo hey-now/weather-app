@@ -132,8 +132,8 @@ public class Weather {
 		lon = longitude;
 		timeframe = frame;
 		
-		lat = 52.2025;
-		lon = 0.1312;
+		//lat = 52.2025;
+		//lon = 0.1312;
 		
 		if (timeframe.equals("now")) getNow();
 		else if (timeframe.equals("day")) getDay();

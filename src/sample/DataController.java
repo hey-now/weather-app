@@ -18,9 +18,13 @@ public class DataController {
     private Parent root;
     private Weather day_data = null;
     private Weather week_data = null;
+    private double lattitude;
+    private double longitude;
 
-    DataController (Parent r){
+    DataController (Parent r, double lattitude, double longitude){
         root=r;
+        this.lattitude=lattitude;
+        this.longitude=longitude;
     }
 
     public void fillData(WeatherStructure structure, String data){
@@ -30,8 +34,10 @@ public class DataController {
         }
     }
 
+
+
     public void loadDayData() throws CoordinateException, TimeFrameException {
-        day_data = new Weather(52.207148,0.122047,"day");
+        day_data = new Weather(lattitude,longitude,"day");
 
         //Filling the data in day screen
         for(int i=0;i<8;i++){
@@ -180,7 +186,7 @@ public class DataController {
     }
 
     public void loadWeekData() throws CoordinateException, TimeFrameException {
-        week_data = new Weather(52.207148,0.122047,"week");
+        week_data = new Weather(lattitude,longitude,"week");
 
         for (int i = 0; i < 7; i++) {
 

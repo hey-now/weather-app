@@ -12,3 +12,6 @@ https://uk.pinterest.com/pin/317785317431559966/
 https://uk.pinterest.com/pin/520165825684940380/
 https://uk.pinterest.com/pin/463096774156864100/
 http://www.cyclenorth.org.uk/wp-content/uploads/2016/05/CYCLING-1024x461.jpg
+
+Drawer menu tutorial:
+http://www.genuinecoder.com/2016/08/javafx-navigation-drawer-side-panel.html/

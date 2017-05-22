@@ -22,6 +22,16 @@ import java.util.Map;
 public class Main extends Application {
     private Parent root;
 
+    private static Main instance;
+
+    public Main() {
+        instance = this;
+    }
+    // static method to get instance of view
+    public static Main getInstance() {
+        return instance;
+    }
+
     public void fillData(WeatherStructure structure, String data){
         Text node = (Text)root.lookup("#"+structure.getXml_id());
         if(node != null) {
@@ -29,37 +39,55 @@ public class Main extends Application {
         }
     }
 
+
+
+    public void changeLocation(String location) throws Exception{
+        Text node = (Text)root.lookup("#location-text");
+        if(node != null) {
+            node.setText(location);
+        }
+
+        double lattitude;
+        double longtitude;
+
+        switch(location){
+            case "Oxford":
+                lattitude = 51.7522;
+                longtitude = -1.256;
+                break;
+            case "London":
+                lattitude = 51.5085;
+                longtitude =  -0.1258;
+                break;
+            case "Warsaw":
+                lattitude = 52.2298;
+                longtitude =  21.0118;
+                break;
+            default: //Cambridge
+                lattitude = 52.207148;
+                longtitude =  0.122047;
+                break;
+        }
+
+        loadAll(lattitude,longtitude);
+
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        HashMap<String, Image> weatherImages = new HashMap<>();
-        weatherImages.put("01d", new Image("/sample/icons/main_icons/01d.png")); //clear sky
-        weatherImages.put("01n", new Image("/sample/icons/main_icons/01n.png")); //night variant
 
-        weatherImages.put("02d", new Image("/sample/icons/main_icons/02d.png")); //few clouds
-        weatherImages.put("02n", new Image("/sample/icons/main_icons/02n.png"));
-
-        weatherImages.put("03d", new Image("/sample/icons/main_icons/03d.png")); //scattered clouds
-        weatherImages.put("03n", new Image("/sample/icons/main_icons/03n.png"));
-
-        weatherImages.put("04d", new Image("/sample/icons/main_icons/04d.png")); //broken clouds
-        weatherImages.put("04n", new Image("/sample/icons/main_icons/04n.png"));
-
-        weatherImages.put("09d", new Image("/sample/icons/main_icons/09d.png")); //shower rain
-        weatherImages.put("09n", new Image("/sample/icons/main_icons/09n.png"));
-
-        weatherImages.put("10d", new Image("/sample/icons/main_icons/10d.png")); //rain
-        weatherImages.put("10n", new Image("/sample/icons/main_icons/10n.png"));
-
-        weatherImages.put("11d", new Image("/sample/icons/main_icons/11d.png")); //thunderstorm
-        weatherImages.put("11n", new Image("/sample/icons/main_icons/11n.png"));
-
-        weatherImages.put("13d", new Image("/sample/icons/main_icons/13d.png")); //snow
-        weatherImages.put("13n", new Image("/sample/icons/main_icons/13n.png"));
-
-        weatherImages.put("50d", new Image("/sample/icons/main_icons/50d.png")); //mist
-        weatherImages.put("50n", new Image("/sample/icons/main_icons/50n.png"));
+        this.root = FXMLLoader.load(getClass().getResource("app_layout.fxml"));
+        primaryStage.setTitle("Bike Weather");
+        primaryStage.setScene(new Scene(root, 450, 800));
+        primaryStage.show();
 
 
+
+        loadAll(52.207148,0.122047); //default start location is Cambridge
+
+    }
+
+    private void loadAll(double lattitude, double longitude) throws Exception{
 
         HashMap<WeatherEnum, WeatherStructure> dataMap = new HashMap<>();
         dataMap.put(WeatherEnum.TEMPERATURE, new WeatherStructure("temperature-text", "°C"));
@@ -79,12 +107,7 @@ public class Main extends Application {
         dataMap.put(WeatherEnum.MAX_TEMPERATURE, new WeatherStructure("max-temperature-text", "°C"));
 
 
-        this.root = FXMLLoader.load(getClass().getResource("app_layout.fxml"));
-        primaryStage.setTitle("Bike Weather");
-        primaryStage.setScene(new Scene(root, 450, 800));
-        primaryStage.show();
-
-        Weather wdata = new Weather(52.207148,0.122047,"now");
+        Weather wdata = new Weather(lattitude,longitude,"now");
 
         for(Map.Entry<WeatherEnum, WeatherStructure> entry : dataMap.entrySet()){
             WeatherEnum k = entry.getKey();
@@ -93,21 +116,20 @@ public class Main extends Application {
             }
         }
 
+        //Setting main icon
         ImageView node = (ImageView)root.lookup("#main-icon1");
-        node.setImage(weatherImages.get(wdata.nowData.get(WeatherEnum.ICON)));
+        node.setImage( new Image("/sample/icons/main_icons/"+wdata.nowData.get(WeatherEnum.ICON)+".png"));
 
         //Setting the alert image
         ImageView alertbarimage = (ImageView)root.lookup("#alert-bar-image");
         int im = (int)(Math.random()*6 + 1);
         alertbarimage.setImage(new Image("/sample/alertbar/"+im+".jpg"));
 
-        DataController dataController = new DataController(root);
+        DataController dataController = new DataController(root,lattitude,longitude);
         dataController.loadDayData();
         dataController.loadRainGraph();
-       // dataController.loadTempGraph();
+        // dataController.loadTempGraph();
         dataController.loadWeekData();
-
-
     }
 
 

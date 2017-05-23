@@ -6,8 +6,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<VBox prefHeight="800.0" prefWidth="300.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SidePanelContentController">
+<VBox fx:id="root" prefHeight="800.0" prefWidth="300.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SidePanelContentController">
    <children>
       <AnchorPane prefHeight="76.0" prefWidth="298.0" styleClass="drawer-top-bar">
          <children>
@@ -19,12 +20,13 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="469.0" prefWidth="297.0">
+      <AnchorPane prefHeight="725.0" prefWidth="300.0">
          <children>
             <JFXButton fx:id="b1" buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#buttonHandler" prefHeight="70.0" prefWidth="293.0" ripplerFill="#00695c" text="Cambridge" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
             <JFXButton fx:id="b2" buttonType="RAISED" layoutX="10.0" layoutY="100.0" onAction="#buttonHandler" prefHeight="70.0" prefWidth="271.0" ripplerFill="#00695c" text="Oxford" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
             <JFXButton fx:id="b3" buttonType="RAISED" layoutX="10.0" layoutY="190.0" onAction="#buttonHandler" prefHeight="70.0" prefWidth="281.0" ripplerFill="#00695c" text="London" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
             <JFXButton fx:id="b4" buttonType="RAISED" layoutX="10.0" layoutY="280.0" onAction="#buttonHandler" prefHeight="70.0" prefWidth="281.0" ripplerFill="#00695c" text="Warsaw" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+            <Text fx:id="changednotify" id="notify" fill="WHITE" layoutX="86.0" layoutY="705.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location Changed" />
 
          </children>
       </AnchorPane>

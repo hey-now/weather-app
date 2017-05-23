@@ -26,9 +26,6 @@ import weatherapp.GeneralPOSTException;
 import weatherapp.TimeFrameException;
 import weatherapp.Weather;
 
-//Class for the side panel that appears when the burger icon in top left is clicked
-//Has location search box and common location buttons
-
 
 public class SidePanelContentController implements Initializable {
 
@@ -70,12 +67,10 @@ public class SidePanelContentController implements Initializable {
 
         Weather finalWdata = wdata;
 
-
         search.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent mouseEvent) {
                 //Enable search bar and hide button
-
                 search.setVisible(false);
                 locationf.setDisable(false);
                 locationf.setVisible(true);
@@ -87,9 +82,6 @@ public class SidePanelContentController implements Initializable {
                     @Override
                     public void handle(KeyEvent keyEvent){
                         if(keyEvent.getCode() == KeyCode.ENTER){
-                            //When enter is pressed, use google's api to get data.
-
-                            //Get most likely place name from user input using google's autocomplete api.
                             String input = locationf.getText().replaceAll(" ", "+");
                             String query = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+input+"&key="+gkey;
                             JSONObject data = null;
@@ -98,11 +90,8 @@ public class SidePanelContentController implements Initializable {
                             }catch(GeneralPOSTException e){
                                 System.out.println(e.getMessage());
                             }
-
                             JSONArray predictions = data.getJSONArray("predictions");
                             if(predictions.length() > 0) {
-                                //If a place name found, use google's place api to find the lat and long of this place.
-
                                 String name = predictions.getJSONObject(0).getString("description");
                                 String id = predictions.getJSONObject(0).getString("place_id");
                                 System.out.println("Name: " + name + " id: " + id);
@@ -124,6 +113,7 @@ public class SidePanelContentController implements Initializable {
                                 locationf.setVisible(false);
                                 locationf.setDisable(true);
                                 search.setVisible(true);
+                                FXMLDocumentController.getInstance().closedrawer();
                             }
                         }
                     }

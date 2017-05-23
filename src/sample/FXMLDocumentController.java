@@ -16,6 +16,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
+import javax.xml.soap.Text;
+
 public class FXMLDocumentController implements Initializable {
 
     @FXML
@@ -27,6 +29,16 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private AnchorPane root;
 
+    private static FXMLDocumentController instance;
+
+
+    public FXMLDocumentController() {
+        instance = this;
+    }
+    // static method to get instance of view
+    public static FXMLDocumentController getInstance() {
+        return instance;
+    }
 
     public static AnchorPane rootP;
     @Override
@@ -55,14 +67,21 @@ public class FXMLDocumentController implements Initializable {
             {
                 drawer.close();
                 drawer.toBack();
+
             }else {
                 drawer.open();
                 drawer.toFront();
                 hamburger.toFront();
+
             }
         });
 
 
+    }
+
+    public void closedrawer(){
+        drawer.close();
+        drawer.toBack();
     }
 
 }

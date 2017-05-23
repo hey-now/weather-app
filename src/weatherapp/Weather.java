@@ -17,6 +17,8 @@ import java.util.*;
 
 import json.*;
 
+//Class for loading weather data from openweathermap API
+
 public class Weather {
 
     public double lat;
@@ -123,7 +125,7 @@ public class Weather {
 	 */
 
     public Weather(double lattitude, double longitude, String frame) throws TimeFrameException, CoordinateException {
-
+        //initialise weather with correct time information
         // timeframe is either 'now', 'day', or 'week'
 
         if (lattitude < -90.0 || lattitude > 90.0 || longitude < -180.0 || longitude > 180.0) throw new CoordinateException("The lattitude or longitude was out of bounds : lat : -90 < " + Double.toString(lattitude) + " < 90 : lon : -180 < " + Double.toString(longitude) + " < 180");
@@ -158,6 +160,8 @@ public class Weather {
 
             nowData.put(WeatherEnum.ICON, data.getJSONArray("weather").getJSONObject(0).getString("icon"));
             nowData.put(WeatherEnum.DESCRIPTION, data.getJSONArray("weather").getJSONObject(0).getString("description"));
+
+            //these are all in separate try catch statements because the API occasionally fails for one call, in which case we want it to continue with the rest
             try {
 
                 nowData.put(WeatherEnum.TEMPERATURE, Double.toString(round(data.getJSONObject("main").getDouble("temp") - 273.15, 0)));

@@ -3,6 +3,9 @@ package weatherapp;
 /**
  * Created by pighe on 16/05/2017.
  */
+
+//Structure storing relation between the id in the fxml and the correct suffix
+
 public class WeatherStructure {
     private String xml_id;
     private String suffix;

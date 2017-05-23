@@ -31,6 +31,8 @@ public class FXMLDocumentController implements Initializable {
     public static AnchorPane rootP;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //Handles the opening and closing of the side menu.
+
         rootP = root;
         hamburger.toFront();
 

@@ -3,6 +3,7 @@ package weatherapp;
 /**
  * Created by pighe on 16/05/2017.
  */
+
 public enum WeatherEnum{
     ICON,
     TEMPERATURE,

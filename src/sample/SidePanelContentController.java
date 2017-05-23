@@ -26,6 +26,9 @@ import weatherapp.GeneralPOSTException;
 import weatherapp.TimeFrameException;
 import weatherapp.Weather;
 
+//Class for the side panel that appears when the burger icon in top left is clicked
+//Has location search box and common location buttons
+
 
 public class SidePanelContentController implements Initializable {
 
@@ -67,14 +70,13 @@ public class SidePanelContentController implements Initializable {
 
         Weather finalWdata = wdata;
 
+
         search.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent mouseEvent) {
-                System.out.println("Clicked!");
-               // Text node = (Text)root.lookup("#location-text");
+                //Enable search bar and hide button
+
                 search.setVisible(false);
-               // node.setVisible(false);
-                //JFXTextField text = (JFXTextField)root.lookup("#location-field");
                 locationf.setDisable(false);
                 locationf.setVisible(true);
 
@@ -85,6 +87,9 @@ public class SidePanelContentController implements Initializable {
                     @Override
                     public void handle(KeyEvent keyEvent){
                         if(keyEvent.getCode() == KeyCode.ENTER){
+                            //When enter is pressed, use google's api to get data.
+
+                            //Get most likely place name from user input using google's autocomplete api.
                             String input = locationf.getText().replaceAll(" ", "+");
                             String query = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+input+"&key="+gkey;
                             JSONObject data = null;
@@ -93,8 +98,11 @@ public class SidePanelContentController implements Initializable {
                             }catch(GeneralPOSTException e){
                                 System.out.println(e.getMessage());
                             }
+
                             JSONArray predictions = data.getJSONArray("predictions");
                             if(predictions.length() > 0) {
+                                //If a place name found, use google's place api to find the lat and long of this place.
+
                                 String name = predictions.getJSONObject(0).getString("description");
                                 String id = predictions.getJSONObject(0).getString("place_id");
                                 System.out.println("Name: " + name + " id: " + id);
@@ -109,18 +117,13 @@ public class SidePanelContentController implements Initializable {
                                 double lat = pdata.getJSONObject("result").getJSONObject("geometry").getJSONObject("location").getDouble("lat");
                                 double lng = pdata.getJSONObject("result").getJSONObject("geometry").getJSONObject("location").getDouble("lng");
                                 System.out.println("Lat: " + lat + " Long:" + lng);
-                                try {
-                                    main.changeLocation(name, lat, lng);
-                                } catch (Exception e) {
-                                    //...
-                                }
+                                main.changeLocation(name, lat, lng);
+
+                                //Disable text and show button
                                 locationf.setText("");
                                 locationf.setVisible(false);
                                 locationf.setDisable(true);
-                              //  node.setVisible(true);
                                 search.setVisible(true);
-                            }else{
-                                //no results found
                             }
                         }
                     }

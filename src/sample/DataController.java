@@ -14,6 +14,9 @@ import java.util.HashMap;
 /**
  * Created by Maja Trebacz on 18.05.2017.
  */
+
+//Class for populating GUI with correct weather data and images.
+
 public class DataController {
     private Parent root;
     private Weather day_data = null;
@@ -28,13 +31,12 @@ public class DataController {
     }
 
     public void fillData(WeatherStructure structure, String data){
+        //Sets text for given GUI element to correct data
         Text node = (Text)root.lookup("#"+structure.getXml_id());
         if(node != null) {
             node.setText(data + " " + structure.getSuffix());
         }
     }
-
-
 
     public void loadDayData() throws CoordinateException, TimeFrameException {
         day_data = new Weather(lattitude,longitude,"day");
@@ -81,6 +83,7 @@ public class DataController {
 
 
     public void loadRainGraph(){
+        //Add the rain data into the graph
 
         Double[] rainData = day_data.dayGraph.get(WeatherEnum.RAIN);
 
@@ -133,7 +136,7 @@ public class DataController {
     }
 
     public void loadTempGraph(){
-
+        //Adds tiem data into the graph
         Double[] tempData = day_data.dayGraph.get(WeatherEnum.TEMPERATURE);
 
         final CategoryAxis xAxis = new CategoryAxis();

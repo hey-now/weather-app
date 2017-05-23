@@ -47,6 +47,8 @@ public class Main extends Application {
 
 
     public void changeLocation(String location){
+        //Change the location text and weather coords for a prespecified location.
+
         Text node = (Text)root.lookup("#location-text");
         if(node != null) {
             node.setText(location);
@@ -78,6 +80,7 @@ public class Main extends Application {
     }
 
     public void changeLocation(String location, double lat, double lng){
+        //Change location text and weather data coords from given coords
         Text node = (Text)root.lookup("#location-text");
         if(node != null) {
             node.setText(location);
@@ -100,6 +103,7 @@ public class Main extends Application {
     }
 
     private void loadAll(double lattitude, double longitude){
+        //Populate GUI with real weather values.
 
         HashMap<WeatherEnum, WeatherStructure> dataMap = new HashMap<>();
         dataMap.put(WeatherEnum.TEMPERATURE, new WeatherStructure("temperature-text", "°C"));

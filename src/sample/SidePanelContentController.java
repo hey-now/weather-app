@@ -3,6 +3,7 @@ package sample;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -46,6 +47,9 @@ public class SidePanelContentController implements Initializable {
     private JFXTextField locationf;
 
     @FXML
+    private Text changednotify;
+
+    @FXML
     private VBox root;
 
     private String gkey = "AIzaSyBeh6I5z5h0XT36uHx5NZmw4cOcPU6RbHM";
@@ -53,6 +57,8 @@ public class SidePanelContentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        changednotify.setVisible(false);
 
         Weather wdata = null;
         try {
@@ -119,6 +125,10 @@ public class SidePanelContentController implements Initializable {
                                 locationf.setDisable(true);
                               //  node.setVisible(true);
                                 search.setVisible(true);
+                              //  changednotify.setVisible(true);
+
+                                FXMLDocumentController.getInstance().closedrawer();
+
                             }else{
                                 //TODO: what to do if no results found?
                             }
@@ -141,6 +151,9 @@ public class SidePanelContentController implements Initializable {
         location=btn.getText();
         main.changeLocation(location);
 
+        FXMLDocumentController.getInstance().closedrawer();
+
+        //  changednotify.setVisible(true);
     }
 
     @FXML

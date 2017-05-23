@@ -130,7 +130,7 @@ public class SidePanelContentController implements Initializable {
                                 FXMLDocumentController.getInstance().closedrawer();
 
                             }else{
-                                //TODO: what to do if no results found?
+                                //no results found
                             }
                         }
                     }
@@ -141,7 +141,7 @@ public class SidePanelContentController implements Initializable {
 
 
     @FXML
-    private void buttonHandler(ActionEvent event) throws Exception{
+    private void buttonHandler(ActionEvent event){
         JFXButton btn = (JFXButton) event.getSource();
         Main main = Main.getInstance();
 

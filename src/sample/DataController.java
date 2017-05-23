@@ -136,7 +136,7 @@ public class DataController {
     }
 
     public void loadTempGraph(){
-        //Adds tiem data into the graph
+        //Adds time data into the graph
         Double[] tempData = day_data.dayGraph.get(WeatherEnum.TEMPERATURE);
 
         final CategoryAxis xAxis = new CategoryAxis();

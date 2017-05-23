@@ -27,8 +27,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private AnchorPane root;
 
-    @FXML
-    private BorderPane mainscreen;
 
     public static AnchorPane rootP;
     @Override

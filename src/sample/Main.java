@@ -30,7 +30,6 @@ public class Main extends Application {
 
     private static Main instance;
 
-    private String gkey = "AIzaSyBeh6I5z5h0XT36uHx5NZmw4cOcPU6RbHM";
 
     public Main() {
         instance = this;
@@ -143,65 +142,8 @@ public class Main extends Application {
         // dataController.loadTempGraph();
         dataController.loadWeekData();
 
-        JFXHamburger mb = (JFXHamburger)root.lookup("#menu-button");
-        mb.setOnMouseClicked(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                Text node = (Text)root.lookup("#location-text");
-                mb.setVisible(false);
-                node.setVisible(false);
-                JFXTextField text = (JFXTextField)root.lookup("#location-field");
-                text.setDisable(false);
-                text.setVisible(true);
 
-                text.setPromptText("Enter the location name or postcode (e.g. 'Cambridge, UK' or 'CB2 8PH')");
 
-                text.setOnKeyPressed(new EventHandler<KeyEvent>(){
-                    @Override
-                    public void handle(KeyEvent keyEvent){
-                        if(keyEvent.getCode() == KeyCode.ENTER){
-                            String input = text.getText().replaceAll(" ", "+");
-                            String query = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+input+"&key="+gkey;
-                            JSONObject data = null;
-                            try {
-                                data = wdata.generalPOST(query);
-                            }catch(GeneralPOSTException e){
-                                System.out.println(e.getMessage());
-                            }
-                            JSONArray predictions = data.getJSONArray("predictions");
-                            if(predictions.length() > 0) {
-                                String name = predictions.getJSONObject(0).getString("description");
-                                String id = predictions.getJSONObject(0).getString("place_id");
-                                System.out.println("Name: " + name + " id: " + id);
-
-                                String placeq = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + id + "&key=" + gkey;
-                                JSONObject pdata = null;
-                                try {
-                                    pdata = wdata.generalPOST(placeq);
-                                } catch (GeneralPOSTException e) {
-                                    System.out.println(e.getMessage());
-                                }
-                                double lat = pdata.getJSONObject("result").getJSONObject("geometry").getJSONObject("location").getDouble("lat");
-                                double lng = pdata.getJSONObject("result").getJSONObject("geometry").getJSONObject("location").getDouble("lng");
-                                System.out.println("Lat: " + lat + " Long:" + lng);
-                                try {
-                                    changeLocation(name, lat, lng);
-                                } catch (Exception e) {
-                                    //...
-                                }
-                                text.setText("");
-                                text.setVisible(false);
-                                text.setDisable(true);
-                                node.setVisible(true);
-                                mb.setVisible(true);
-                            }else{
-                               //TODO: what to do if no results found?
-                            }
-                        }
-                    }
-                });
-            }
-        });
     }
 
 

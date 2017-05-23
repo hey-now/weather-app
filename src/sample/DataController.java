@@ -12,7 +12,7 @@ import weatherapp.*;
 import java.util.HashMap;
 
 /**
- * Created by treba on 18.05.2017.
+ * Created by Maja Trebacz on 18.05.2017.
  */
 public class DataController {
     private Parent root;

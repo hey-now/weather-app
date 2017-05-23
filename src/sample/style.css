@@ -288,3 +288,6 @@ VBox{
     -fx-background-color: #00695c;
 }
 
+.jfx-text-field{
+    -fx-text-fill: whitesmoke;
+}

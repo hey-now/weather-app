@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="800.0" prefWidth="200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SidePanelContentController">
+<VBox prefHeight="800.0" prefWidth="300.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SidePanelContentController">
    <children>
-      <AnchorPane prefHeight="76.0" prefWidth="200.0" styleClass="drawer-top-bar">
+      <AnchorPane prefHeight="76.0" prefWidth="298.0" styleClass="drawer-top-bar">
          <children>
+            <JFXTextField id="location-field" fx:id="locationf" disable="true" focusColor="#5442a8" prefHeight="25.0" prefWidth="300.0" promptText="Enter location name or postcode (e.g &quot;Cambridge, UK&quot;)" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+            <ImageView id="search" fx:id="search" fitHeight="31.0" fitWidth="30.0" layoutX="256.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/search.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="469.0" prefWidth="297.0">

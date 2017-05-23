@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXTabPane?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
@@ -17,20 +16,19 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.layout.RowConstraints?>
 <AnchorPane id="AnchorPane" fx:id="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FXMLDocumentController">
     <children>
-        <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" disable="true" layoutY="-6.0" prefHeight="800.0" prefWidth="200.0" visible="false" />
-        <JFXHamburger id="menu-button" fx:id="hamburger" layoutX="14.0" layoutY="10.0" />
+        <JFXDrawer fx:id="drawer" defaultDrawerSize="300.0" layoutY="-6.0" prefHeight="800.0" prefWidth="300.0" />
+        <JFXHamburger fx:id="hamburger" layoutX="14.0" layoutY="10.0" />
 
         <BorderPane fx:id="mainscreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="450.0" stylesheets="@style.css">
             <top>
                 <AnchorPane id="top-bar" prefHeight="39.0" prefWidth="450.0" BorderPane.alignment="CENTER">
                     <children>
                         <Text id="location-text" fill="WHITE" layoutX="60.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="city-name" text="Cambridge" wrappingWidth="308.82421875" />
-                  <JFXTextField id="location-field" disable="true" focusColor="#5442a8" layoutX="8.0" layoutY="7.0" prefHeight="25.0" prefWidth="432.0" promptText="Enter location name or postcode (e.g &quot;Cambridge, UK&quot;)" visible="false" />
                     </children>
                 </AnchorPane>
             </top>

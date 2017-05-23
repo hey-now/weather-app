@@ -17,11 +17,9 @@ import javafx.stage.Stage;
 import javafx.scene.text.Text;
 import json.JSONArray;
 import json.JSONObject;
-import weatherapp.GeneralPOSTException;
-import weatherapp.Weather;
-import weatherapp.WeatherEnum;
-import weatherapp.WeatherStructure;
+import weatherapp.*;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,7 +46,7 @@ public class Main extends Application {
 
 
 
-    public void changeLocation(String location) throws Exception{
+    public void changeLocation(String location){
         Text node = (Text)root.lookup("#location-text");
         if(node != null) {
             node.setText(location);
@@ -79,7 +77,7 @@ public class Main extends Application {
         loadAll(lattitude,longtitude);
     }
 
-    public void changeLocation(String location, double lat, double lng) throws Exception{
+    public void changeLocation(String location, double lat, double lng){
         Text node = (Text)root.lookup("#location-text");
         if(node != null) {
             node.setText(location);
@@ -88,17 +86,20 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage){
+        try {
+            this.root = FXMLLoader.load(getClass().getResource("app_layout.fxml"));
+            primaryStage.setTitle("Bike Weather");
+            primaryStage.setScene(new Scene(root, 450, 800));
+            primaryStage.show();
 
-        this.root = FXMLLoader.load(getClass().getResource("app_layout.fxml"));
-        primaryStage.setTitle("Bike Weather");
-        primaryStage.setScene(new Scene(root, 450, 800));
-        primaryStage.show();
-
-        loadAll(52.207148,0.122047); //default start location is Cambridge
+            loadAll(52.207148,0.122047); //default start location is Cambridge
+        }catch(IOException e){
+            System.out.println("Failed to load FXML: " + e.getMessage());
+        }
     }
 
-    private void loadAll(double lattitude, double longitude) throws Exception{
+    private void loadAll(double lattitude, double longitude){
 
         HashMap<WeatherEnum, WeatherStructure> dataMap = new HashMap<>();
         dataMap.put(WeatherEnum.TEMPERATURE, new WeatherStructure("temperature-text", "°C"));
@@ -117,33 +118,35 @@ public class Main extends Application {
         dataMap.put(WeatherEnum.MIN_TEMPERATURE, new WeatherStructure("min-temperature-text", "°C"));
         dataMap.put(WeatherEnum.MAX_TEMPERATURE, new WeatherStructure("max-temperature-text", "°C"));
 
+        try {
+            Weather wdata = new Weather(lattitude, longitude, "now");
 
-        Weather wdata = new Weather(lattitude,longitude,"now");
-
-        for(Map.Entry<WeatherEnum, WeatherStructure> entry : dataMap.entrySet()){
-            WeatherEnum k = entry.getKey();
-            if(wdata.nowData.containsKey(k)){
-                fillData(entry.getValue(), wdata.nowData.get(k));
+            for (Map.Entry<WeatherEnum, WeatherStructure> entry : dataMap.entrySet()) {
+                WeatherEnum k = entry.getKey();
+                if (wdata.nowData.containsKey(k)) {
+                    fillData(entry.getValue(), wdata.nowData.get(k));
+                }
             }
+
+            //Setting main icon
+            ImageView node = (ImageView) root.lookup("#main-icon1");
+            node.setImage(new Image("/sample/icons/main_icons/" + wdata.nowData.get(WeatherEnum.ICON) + ".png"));
+
+            //Setting the alert image
+            ImageView alertbarimage = (ImageView) root.lookup("#alert-bar-image");
+            int im = (int) (Math.random() * 6 + 1);
+            alertbarimage.setImage(new Image("/sample/alertbar/" + im + ".jpg"));
+
+            DataController dataController = new DataController(root, lattitude, longitude);
+            dataController.loadDayData();
+            dataController.loadRainGraph();
+            // dataController.loadTempGraph();
+            dataController.loadWeekData();
+        }catch(TimeFrameException e1){
+            System.out.println(e1.getMessage());
+        }catch(CoordinateException e2){
+            System.out.println(e2.getMessage());
         }
-
-        //Setting main icon
-        ImageView node = (ImageView)root.lookup("#main-icon1");
-        node.setImage( new Image("/sample/icons/main_icons/"+wdata.nowData.get(WeatherEnum.ICON)+".png"));
-
-        //Setting the alert image
-        ImageView alertbarimage = (ImageView)root.lookup("#alert-bar-image");
-        int im = (int)(Math.random()*6 + 1);
-        alertbarimage.setImage(new Image("/sample/alertbar/"+im+".jpg"));
-
-        DataController dataController = new DataController(root,lattitude,longitude);
-        dataController.loadDayData();
-        dataController.loadRainGraph();
-        // dataController.loadTempGraph();
-        dataController.loadWeekData();
-
-
-
     }
 
 
